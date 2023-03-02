@@ -1,0 +1,18 @@
+.guarantees {
+    display: flex;
+    word-wrap: wrap;
+    margin: 20px;
+}
+
+.guarantee-item {
+    width: calc(33% - 16px);
+    margin: 8px;
+}
+
+.guarantee-image {
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
