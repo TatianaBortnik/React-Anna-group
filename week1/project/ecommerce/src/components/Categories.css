@@ -1,0 +1,19 @@
+.categories {
+    display: flex;
+    font-weight: 700;
+  }
+  
+  .category-item {
+    margin: 2px;
+    padding: 12px;
+    background-color: #efeff0;;
+  }
+  
+  .category-item:hover {
+    background-color: #d6d6d8;;
+  }
+
+  .category-selected {
+    background-color: #bdbdc1;;
+  }
+  
