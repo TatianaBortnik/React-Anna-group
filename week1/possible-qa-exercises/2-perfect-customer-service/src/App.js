@@ -1,11 +1,10 @@
 import './App.css';
-import guaranteesData from './data/guarantee';
-import Guarantees from './components/Guarantee';
+import GuaranteeList from './components/GuaranteeList';
 
 function App() {
   return (
     <div className="App">
-      {Guarantees(guaranteesData)}
+      <GuaranteeList />
     </div>
   );
 }

@@ -1,23 +1,15 @@
 import './Guarantee.css'
 
-const Guarantee = (props) => {
+function Guarantee({img, title, description}) {
     return (
-        <div className='guarantee-item' key={props.id}>
+        <div className='guarantee-item' >
             <div className='guarantee-image'>
-                <img  src={props.img} alt={`${props.title} image`}/>
+                <img src={img} alt={title} />
             </div>
-            <h2 className='guarantee-title'>{props.title}</h2>
-            <div className='guarantee-description'>{props.description}</div>
+            <h2 className='guarantee-title'>{title}</h2>
+            <div className='guarantee-description'>{description}</div>
         </div>
     )
 }
 
-const Guarantees = (props) => {
-    return (
-        <div className='guarantees'>
-            {props.map(item => Guarantee(item))}
-        </div>
-    )
-}
-
-export default Guarantees
+export default Guarantee;
