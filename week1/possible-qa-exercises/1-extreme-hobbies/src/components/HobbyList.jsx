@@ -1,16 +1,9 @@
-
-const Hobby = (props) => {
-    return (
-        <li key={props.hobby}>{props.hobby}</li> 
-    )
-}
-
-
+import Hobby from "./Hobby"
 const HobbyList = () => {
     const hobbies = ["Surfing", "Rock climbing", "Mountain biking", "Breakdancing"]
     return (
         <ul>
-            {hobbies.map(hobby => Hobby({hobby}))}
+            { hobbies.map(item => <Hobby key={item} hobby={item} />)}
         </ul>
     )
 }

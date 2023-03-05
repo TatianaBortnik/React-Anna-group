@@ -4,7 +4,7 @@ import HobbyList from './components/HobbyList'
 function App() {
   return (
     <div className="App">
-      { HobbyList() }
+      < HobbyList />
     </div>
   );
 }
