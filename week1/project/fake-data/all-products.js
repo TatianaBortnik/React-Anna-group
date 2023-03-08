@@ -1,4 +1,4 @@
-export default [
+export default products = [
   {
     id: 1,
     title: "FAKE: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",

@@ -1,4 +1,4 @@
-export default [
+export default categories =[
   "FAKE: electronics",
   "FAKE: jewelery",
   "FAKE: men's clothing",
