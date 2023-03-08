@@ -4,10 +4,10 @@ import Product from './Product'
   
   function Products({products, state}) {
 
-    const filter = state.isAll ? '' : state.selectedCategory.slice(6)
+    const categoryName = state.isAll ? '' : state.selectedCategory.slice(6)
 
     const filteredList = 
-      filter ? products.filter(product => product.category === filter) : products
+      categoryName ? products.filter(product => product.category === categoryName) : products
 
     return (
       <ul className='products-list'>

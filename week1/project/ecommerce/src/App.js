@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <h1>Products</h1>
-      { Categories({categories, state, setState}) }
-      { ProductsList({products, state}) }
+      <Categories categories={categories} state={state} setState={setState} />
+      <ProductsList products={products} state={state} />
     </div>
   );
 }

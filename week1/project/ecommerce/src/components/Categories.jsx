@@ -15,7 +15,7 @@ function Categories ({categories, state, setState}) {
     return (
         <div className="categories">
             {categories.map((item, index) => {
-                const className = 'category-item' + ((item === state.selectedCategory) && !state.isAll ? ' category-selected' : '')
+                const className = ((item === state.selectedCategory) && !state.isAll ? 'category-selected' : '')
                 return <Category key={index} className={className} data={item} onClick={changeFilter} />
             })}
         </div>
