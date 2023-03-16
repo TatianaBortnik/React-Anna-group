@@ -1,0 +1,22 @@
+@import "./colors.css";
+
+.categories {
+    display: flex;
+    font-weight: 700;
+  }
+  
+  .category-item {
+    margin: 2px;
+    padding: 12px;
+    background-color: var(--category);
+  }
+  
+  .category-item:hover {
+    background-color: var(--category-hover);
+    cursor: pointer;;
+  }
+
+  .category-selected {
+    background-color: var(--category-selected);
+  }
+  
