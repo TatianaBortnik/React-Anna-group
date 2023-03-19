@@ -26,26 +26,21 @@ function ProductDetails() {
 
     return (
         <>
-            {isLoading ?
-                <div>Loading...</div> :
+            {isLoading && <div>Loading...</div>}
+            {error.isError && <ErrorMessage msg={error.message} />}
+            {!isLoading && !error.isError && product && (
                 <>
-                    {error.isError && <ErrorMessage msg={error.message} />}
-                    {product &&
-                        <>
-                            <div className="title">
-                                <h1>{product.title}</h1>
-                            </div>
-                            <div className="product-details">
-                                <p>{product.description}</p>
-                                <div className="product-details-image">
-                                    <img className="product-image" src={product.image} alt={product.title} />
-                                </div>
-
-                            </div>
-                        </>
-                    }
+                    <div className="title">
+                        <h1>{product.title}</h1>
+                    </div>
+                    <div className="product-details">
+                        <p>{product.description}</p>
+                        <div className="product-details-image">
+                            <img className="product-image" src={product.image} alt={product.title} />
+                        </div>
+                    </div>
                 </>
-            }
+            )}
         </>
     )
 

@@ -1,6 +1,6 @@
-function Category  ({data, className, onClick})  {
+function Category  ({categoryName, className, onClick})  {
     return (
-        <div className={`category-item ${className}`} onClick={() => onClick(data)}>{data}</div>
+        <div className={`category-item ${className}`} onClick={() => onClick(categoryName)}>{categoryName}</div>
     )
 }
 

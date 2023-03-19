@@ -4,31 +4,39 @@ import getCategories from '../../data/categories'
 import getProducts from '../../data/products'
 import { useState, useEffect } from 'react'
 import ErrorMessage from '../../components/ErrorMessage'
+import Loading from '../../components/Loading'
 
 function ProductsList() {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [loadingObjectName, setLoadingObjectName] = useState('');
     const [error, setError] = useState({ isError: false, message: '' })
 
     useEffect(() => {
         (async () => {
-            const data = await getCategories();
-            setCategories(data);
+            try {
+                setLoadingObjectName('Categories');
+                const data = await getCategories();
+                setCategories(data);
+            } catch (error) {
+                setError({ isError: true, message: error.message })
+            } finally {
+                setLoadingObjectName('');
+            }
         })()
     }, [])
 
     useEffect(() => {
         (async () => {
             try {
-                setIsLoading(true);
+                setLoadingObjectName('Products');
                 const data = await getProducts(selectedCategory);
                 setProducts(data);
             } catch (error) {
                 setError({ isError: true, message: error.message })
             } finally {
-                setIsLoading(false);
+                setLoadingObjectName('');
             }
         })()
     }, [selectedCategory])
@@ -38,12 +46,16 @@ function ProductsList() {
             {error.isError && <ErrorMessage msg={error.message} />}
             <div>
                 <h1>Products</h1>
-                <Categories
-                    categories={categories}
-                    state={selectedCategory}
-                    setState={setSelectedCategory}
-                    setIsLoading={setIsLoading} />
-                <Products products={products} isLoading={isLoading} />
+                {loadingObjectName === 'Categories' && <Loading />}
+                {loadingObjectName !== 'Categories' && (
+                    <Categories
+                        categories={categories}
+                        state={selectedCategory}
+                        setState={setSelectedCategory}
+                    />
+                )}
+                {loadingObjectName === 'Products' && <Loading />}
+                {!loadingObjectName && <Products products={products} />}
             </div>
         </>
     )
